@@ -1,6 +1,6 @@
 # UITextField+Extension - UIPikerView
 
-A UITextField extension with a prebuilt UIPickerView in the place of a normal keyboard. Choose one of the presented options and the UITextFiled will update automatically it's string value.
+A UITextField extension in Swift 5.0 with a prebuilt UIPickerView in the place of a normal keyboard. Choose one of the presented options and the UITextFiled will update automatically it's string value.
 
 ## Installation
 
