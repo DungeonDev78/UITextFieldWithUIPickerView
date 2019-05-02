@@ -119,7 +119,7 @@ extension UITextField: UIPickerViewDelegate {
     }
 }
 
-// MARK: - UIImage∫
+// MARK: - UIImage
 extension UIImage {
     /// Create a UIImage with a single color
     ///
