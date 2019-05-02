@@ -14,8 +14,17 @@ Use the next simple command on the chosen UITextField and add the array of Strin
 ```
 myTxtFiled.configureWith(options: ["First", "Second", "Third"], 
                          on: self, 
-                         doneButtonText: "CLOSE")
+                         doneButtonText: "CLOSE",
+                         toolbarColor: .red, 
+                         toolbarButtonColor: .white)
 ```
+
+Or super short:
+
+```
+myTxtFiled.configureWith(options: ["First", "Second", "Third"], on: self)
+```
+
 
 ## Author
 
