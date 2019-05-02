@@ -17,7 +17,9 @@ extension UITextField {
     ///   - doneButtonText: the text used in the "Done" button
     func configureWith(options: [String],
                        on parentViewController: UIViewController,
-                       doneButtonText: String? = nil) {
+                       doneButtonText: String? = nil,
+                       toolbarColor: UIColor = .lightGray,
+                       toolbarButtonColor: UIColor = .black) {
 
         self.parentViewController = parentViewController
         self.options = options
@@ -30,10 +32,9 @@ extension UITextField {
         self.inputAccessoryView = {
             let frame = CGRect.init(x: 0, y: 0, width: parentViewController.view.frame.size.width, height: 44)
             let toolbar = UIToolbar(frame: frame)
-            let greyColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-            toolbar.setBackgroundImage(UIImage.imageWithColor(greyColor), forToolbarPosition: .bottom, barMetrics: .default)
+            toolbar.setBackgroundImage(UIImage.imageWithColor(toolbarColor), forToolbarPosition: .bottom, barMetrics: .default)
             let done = UIBarButtonItem.init(title: btnTitle, style: UIBarButtonItem.Style.plain, target: self, action: #selector(UIResponder.resignFirstResponder))
-            done.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State())
+            done.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: toolbarButtonColor], for: UIControl.State())
             let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
             toolbar.items = [spacer, done]
             return toolbar
@@ -116,5 +117,22 @@ extension UITextField: UIPickerViewDelegate {
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.text = options?[row]
     }
+}
 
+// MARK: - UIImage∫
+extension UIImage {
+    /// Create a UIImage with a single color
+    ///
+    /// - Parameter color: the color for the image
+    /// - Returns: the generated UIImage
+    class func imageWithColor(_ color: UIColor) -> UIImage? {
+        let size = CGSize(width: 1, height: 1)
+        let rect = CGRect(x: 0, y: 0, width: 1, height: size.height)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        color.setFill()
+        UIRectFill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
 }
