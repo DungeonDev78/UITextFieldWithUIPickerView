@@ -12,7 +12,7 @@ Copy the Swift extension included in the repo in your project.
 Use the next simple command on the chosen UITextField and add the array of String as options. Select the UIViewController that holds the UITextField. Chose an optional text for the **Done** button.
 
 ```
-myTxtFiled.configureWith(options: ["First", "Second", "Third"], 
+myTxtField.configureWith(options: ["First", "Second", "Third"], 
                          on: self, 
                          doneButtonText: "CLOSE",
                          toolbarColor: .red, 
@@ -22,7 +22,7 @@ myTxtFiled.configureWith(options: ["First", "Second", "Third"],
 Or super short:
 
 ```
-myTxtFiled.configureWith(options: ["First", "Second", "Third"], on: self)
+myTxtField.configureWith(options: ["First", "Second", "Third"], on: self)
 ```
 
 
